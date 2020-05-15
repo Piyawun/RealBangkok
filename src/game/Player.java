@@ -51,12 +51,12 @@ public class Player {
     /**
      * Method jump จะกำหนด speedY ความสูงของการกระโดด ที่ -22 และ ลบ canJump - 1
                     */
-            public void jump() {
-                if(canJump > 0){
-                    speedY = -22;
-                    canJump--;
-                }
-                fall();
+    public void jump() {
+        if(canJump > 0){
+            speedY = -22;
+            canJump--;
+        }
+        fall();
 
     }
 

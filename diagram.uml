@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="289.0" y="223.0">game.GameOver</node>
+    <node x="1599.4285714285716" y="212.0">game.Obstacle</node>
+    <node x="1293.4285714285713" y="0.0">game.LineNotify</node>
+    <node x="1342.4285714285713" y="256.0">game.Log</node>
+    <node x="994.0" y="223.0">game.StartMenu</node>
+    <node x="803.9935515873016" y="22.0">game.Project</node>
+    <node x="0.0" y="223.0">game.Score</node>
+    <node x="780.8395337301586" y="602.0">game.Game</node>
+    <node x="800.0" y="278.0">game.PlayGame</node>
+    <node x="578.0" y="157.0">game.Player</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="game.Log" target="game.LineNotify">
+      <point x="59.25" y="-48.5" />
+      <point x="1520.1785714285716" y="137.0" />
+      <point x="1544.6785714285716" y="137.0" />
+      <point x="83.75" y="48.5" />
+    </edge>
+    <edge source="game.Game" target="game.Obstacle">
+      <point x="107.27083333333337" y="-92.5" />
+      <point x="1023.6103670634919" y="562.0" />
+      <point x="1638.4285714285716" y="562.0" />
+      <point x="-78.0" y="92.5" />
+    </edge>
+    <edge source="game.Game" target="game.GameOver">
+      <point x="-84.68749999999989" y="-92.5" />
+      <point x="831.6520337301587" y="542.0" />
+      <point x="322.625" y="542.0" />
+      <point x="-100.875" y="81.5" />
+    </edge>
+    <edge source="game.Score" target="game.Game">
+      <point x="100.875" y="81.5" />
+      <point x="235.375" y="552.0" />
+      <point x="820.360367063492" y="552.0" />
+      <point x="-95.97916666666652" y="-92.5" />
+    </edge>
+    <edge source="game.PlayGame" target="game.Game">
+      <point x="58.0" y="26.5" />
+      <point x="945.0" y="472.0" />
+      <point x="921.9853670634919" y="472.0" />
+      <point x="5.645833333333371" y="-92.5" />
+    </edge>
+    <edge source="game.Game" target="game.StartMenu">
+      <point x="28.229166666666742" y="-92.5" />
+      <point x="944.5687003968253" y="492.0" />
+      <point x="1094.875" y="492.0" />
+      <point x="-33.625" y="81.5" />
+    </edge>
+    <edge source="game.Player" target="game.Project">
+      <point x="0.0" y="-147.5" />
+      <point x="679.0" y="137.0" />
+      <point x="863.2792658730158" y="137.0" />
+      <point x="-23.71428571428578" y="26.5" />
+    </edge>
+    <edge source="game.GameOver" target="game.Project">
+      <point x="0.0" y="-81.5" />
+      <point x="423.5" y="127.0" />
+      <point x="839.5649801587301" y="127.0" />
+      <point x="-47.428571428571445" y="26.5" />
+    </edge>
+    <edge source="game.StartMenu" target="game.Project">
+      <point x="0.0" y="-81.5" />
+      <point x="1128.5" y="137.0" />
+      <point x="910.7078373015872" y="137.0" />
+      <point x="23.714285714285666" y="26.5" />
+    </edge>
+    <edge source="game.Project" target="game.Game">
+      <point x="47.42857142857133" y="26.5" />
+      <point x="934.4221230158729" y="127.0" />
+      <point x="1273.5" y="127.0" />
+      <point x="1273.5" y="522.0" />
+      <point x="978.4437003968252" y="522.0" />
+      <point x="62.10416666666663" y="-92.5" />
+    </edge>
+    <edge source="game.Game" target="game.Player">
+      <point x="-28.22916666666663" y="-92.5" />
+      <point x="888.1103670634919" y="492.0" />
+      <point x="729.5" y="492.0" />
+      <point x="50.5" y="147.5" />
+    </edge>
+    <edge source="game.Game" target="game.PlayGame">
+      <point x="-16.9375" y="-92.5" />
+      <point x="899.4020337301586" y="482.0" />
+      <point x="829.0" y="482.0" />
+      <point x="-58.0" y="26.5" />
+    </edge>
+    <edge source="game.Score" target="game.Project">
+      <point x="0.0" y="-81.5" />
+      <point x="134.5" y="117.0" />
+      <point x="815.8506944444445" y="117.0" />
+      <point x="-71.14285714285711" y="26.5" />
+    </edge>
+    <edge source="game.GameOver" target="game.Game">
+      <point x="33.625" y="81.5" />
+      <point x="457.125" y="522.0" />
+      <point x="854.235367063492" y="522.0" />
+      <point x="-62.104166666666515" y="-92.5" />
+    </edge>
+    <edge source="game.Game" target="game.Log">
+      <point x="95.97916666666663" y="-92.5" />
+      <point x="1012.3187003968252" y="552.0" />
+      <point x="1520.1785714285716" y="552.0" />
+      <point x="59.25" y="48.5" />
+    </edge>
+    <edge source="game.Game" target="game.Score">
+      <point x="-118.56249999999989" y="-92.5" />
+      <point x="797.7770337301587" y="572.0" />
+      <point x="100.875" y="572.0" />
+      <point x="-33.625" y="81.5" />
+    </edge>
+    <edge source="game.PlayGame" target="game.Project">
+      <point x="0.0" y="-26.5" />
+      <point x="0.0" y="26.5" />
+    </edge>
+    <edge source="game.StartMenu" target="game.Game">
+      <point x="100.875" y="81.5" />
+      <point x="1229.375" y="512.0" />
+      <point x="967.1520337301586" y="512.0" />
+      <point x="50.8125" y="-92.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.5315985130111525" x="917.0" y="393.49999999999994" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

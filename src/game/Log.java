@@ -1,14 +1,10 @@
 package game;
 
 import javax.swing.*;
-import java.awt.*;
 import java.io.*;
 import java.net.InetAddress;
-import java.net.UnknownHostException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import java.util.Scanner;
 
 public class Log<log> {

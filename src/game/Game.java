@@ -53,9 +53,8 @@ public class Game extends JPanel implements ActionListener, KeyListener {
 
     /**
      * สร้าง Object ขึ้นมาใหม่ และภายใน จะเป็นการ init object ของแต่ละClass ด้วย
-     * @throws IOException
      */
-    public Game() throws IOException {
+    public Game() {
 
         startMenu = new StartMenu(this);
         scoreMenu = new Score(this);
@@ -114,7 +113,6 @@ public class Game extends JPanel implements ActionListener, KeyListener {
             throw new IllegalArgumentException("Invalid range");
         }
         rand = new Random().nextInt(max - min + 1) + min;
-//        System.out.println(rand);
         return rand;
     }
 
@@ -135,16 +133,22 @@ public class Game extends JPanel implements ActionListener, KeyListener {
 
 
 
-                if (tickCount % speed == 0) {
+                if (tickCount % speed == 0) { //แบ่งการ new object
+
+                    if(sumScore > 70){
+                        speed = setSpeed(10,50);
+                        obstacles.add(new Obstacle(860, 360, 1.2)); // List obstacles เพื่อ add class object Obstacle เข้าไปใน List
+                    }else if(sumScore > 500){
+                        speed = setSpeed(5,10);
+                        obstacles.add(new Obstacle(860, 360,1.5)); // List obstacles เพื่อ add class object Obstacle เข้าไปใน List
+                    }else{
+                        obstacles.add(new Obstacle(860, 360)); // List obstacles เพื่อ add class object Obstacle เข้าไปใน List
+                    }
+
                     tickCount = 0;
-                    obstacles.add(new Obstacle(860, 360)); // List obstacles เพื่อ add class object Obstacle เข้าไปใน List
 
                 }
-                if(sumScore > 70){
-                    speed = setSpeed(10,50);
-                }else if(sumScore > 500){
-                    speed = setSpeed(5,10);
-                }
+
 
                 playGamePanel.draw(g); //สั่ง class playGamePanel เพื่อสั่งวาดหน้าเจอแสดงผล และ ต้องส่ง parameter เพื่อกสั่งให้ทำงาน
 
@@ -156,7 +160,6 @@ public class Game extends JPanel implements ActionListener, KeyListener {
                     obstacle.draw(g); //obstacle ใช้ draw และส่ง parameter g เพื่อให้ทำงาน
                     System.out.println(obstacle.getX());
 
-//                    System.out.println("120 <= " + obstacle.getX() + " and " + " 180 >= " + obstacle.getX() + " and " + player.getY() + " >= " + "300");
 
                     if (120 <= obstacle.getX() && 180 >= obstacle.getX() && player.getY() >= 300) { //เช็ค การกระทบกันระหว่าง 2 Object ของ Player และ Obstacle
                         System.out.println("Out");
@@ -169,7 +172,7 @@ public class Game extends JPanel implements ActionListener, KeyListener {
 
                     }
                 });
-                System.out.println(obstacles);
+
                 obstacles = obstacles.stream().filter(obstacle -> obstacle.getX() >= -20).collect(Collectors.toList()); //จะเก็บข้อมูล obstacle >= -60 ถ้า ไม่ได้อยู่ในเงื่อนไขนี้จะถูกลบออก
 
                 break;
@@ -177,7 +180,7 @@ public class Game extends JPanel implements ActionListener, KeyListener {
                 try {
                     scorePanel.draw(g); // ScorePanel  ใช้ Method draw ส่ง parameter G เพื่อแสดงผลขึ้นหน้าจอ
                 } catch (IOException e) {
-                    e.printStackTrace();
+                    System.out.println("Error !! :" + e.getMessage());
                 }
                 break;
             case GAME_OVER:

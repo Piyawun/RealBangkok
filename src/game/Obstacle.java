@@ -8,6 +8,7 @@ import java.util.Random;
 public class Obstacle {
     private int x;
     private int y;
+    private double speedFactor = 1;
     Image obstacleIcon;
 
     /**
@@ -33,11 +34,16 @@ public class Obstacle {
         obstacleIcon = icon.getImage();
     }
 
+    public Obstacle(int x,int y,double speedFactor){
+        this(x, y);
+        this.speedFactor = speedFactor;
+    }
+
     /**
-     * obstacles -=15 จาก 860 -= 15 จนถึง 110 จะหายไป
+     * obstacles -=15 จาก 860 -= 15 จนถึง 110 จะหายไป and * speedFactor
      */
     public void move() {
-        x -= 15;
+        x -= 15 * this.speedFactor;
     }
 
     /**
@@ -77,6 +83,10 @@ public class Obstacle {
      */
     public void setY(int y) {
         this.y = y;
+    }
+
+    public void setSpeedFactor(double speedFactor) {
+        this.speedFactor = speedFactor;
     }
 
 }
