@@ -1,4 +1,8 @@
 
-Name : TEST_BY_IP Score : 24
-Name : AS Score : 34 127
-Name :  OHHO Score : 127
+Name : AS Score : 4
+Name : สวัสดี Score : 9
+Name : :D Score : 39
+Name : TE Score : 691
+Name : SAM Score : 810
+Name : OAT Score : 200
+Name :  O Score : 307

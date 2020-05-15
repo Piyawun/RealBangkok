@@ -18,6 +18,7 @@ public class Obstacle {
      * จากนั้นใช้ function random เพื่อ สุ่มรูปที่จะส่งออกไปแสดงผล
      */
     public Obstacle(int x, int y) {
+
         this.x = x;
         this.y = y;
         Hashtable<Integer, String> imageDict = new Hashtable<Integer, String>();
@@ -32,7 +33,9 @@ public class Obstacle {
         obstacleIcon = icon.getImage();
     }
 
-
+    /**
+     * obstacles -=15 จาก 860 -= 15 จนถึง 110 จะหายไป
+     */
     public void move() {
         x -= 15;
     }

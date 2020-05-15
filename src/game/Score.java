@@ -33,8 +33,8 @@ public class Score implements MouseListener {
         ImageIcon imageIcon = new ImageIcon("image/Score.png");
         Image image = imageIcon.getImage();
         g.drawImage(image,0,0,Project.WIDTH,Project.HEIGHT,null);
-        g.setFont(new Font("Roboto Slab", Font.CENTER_BASELINE, 50));
-        g.drawString(line,390,251);
+        g.setFont(new Font("TimesRoman", Font.CENTER_BASELINE, 50));
+        g.drawString(line,380,257);
     }
 
 

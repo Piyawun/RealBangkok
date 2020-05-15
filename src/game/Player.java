@@ -2,24 +2,21 @@ package game;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.ArrayList;
+
 
 public class Player {
-    private int x;
-    private int y;
+    private int x , y;
     private double speedY = 0;
-    private double gravity = 1.55; // Can tune
-    private boolean canJump = true;
+    private double gravity = 1.50; // Can tune
+    private int canJump = 2;
     private boolean canFall = false;
     private Image playerImage;
 
 
     /**
-     * get position x , y form player
-     * @param x ค่าแนวแกน X
-     * @param y ค่าแนวแกน Y
+     * set position x , y to player
+     * @param x
+     * @param y
      */
     public Player(int x, int y) {
         this.x = x;
@@ -28,6 +25,7 @@ public class Player {
 
     /**
      * อัพเดท แกน Y และเช็คความสูงของการกระโดด โดย  กำหนดให้ canFall เป็น true
+     * HEIGHT / 2 + 100 = 340
      */
     public void update() {
         if (y < Project.HEIGHT / 2 + 100) {
@@ -51,17 +49,20 @@ public class Player {
     }
 
     /**
-     * Method jump จะกำหนด speed Y ที่ -22 ค่าความสูงจะติดลบ และถ้า
-     */
-    public void jump() {
-        if (canJump) {
-            speedY = -22;
-            canJump = false;
-        }
+     * Method jump จะกำหนด speedY ความสูงของการกระโดด ที่ -22 และ ลบ canJump - 1
+                    */
+            public void jump() {
+                if(canJump > 0){
+                    speedY = -22;
+                    canJump--;
+                }
+                fall();
+
     }
 
     /**
      * Method fall
+     * เพื่อทำให้ SpeedY เพิ่มขึ้นเลื่อยๆโดยเพิ่มเรื่อยๆทีละ 1.50 ทำให้กระโดดมีความสมูทมากขึ้น โดยเอา -22 += 1.5
      */
     public void fall() {
         if (canFall) {
@@ -97,7 +98,7 @@ public class Player {
      * get isJump
      * @return canJump
      */
-    public boolean isJump() {
+    public int isJump() {
         return canJump;
     }
 
@@ -127,9 +128,9 @@ public class Player {
 
     /**
      * setJump
-     * @param canJump รับค่าที่เป็น boolean และนำค่า boolean ที่ได้รับไปเซตค่าการกระโดดของวัตถุ
+     * @param canJump รับค่าที่เป็น int และนำค่า int ที่ได้รับไปเซตค่าการกระโดดของวัตถุ
      */
-    public void setJump(boolean canJump) {
+    public void setJump(int canJump) {
         this.canJump = canJump;
     }
 

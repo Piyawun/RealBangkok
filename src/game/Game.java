@@ -56,7 +56,7 @@ public class Game extends JPanel implements ActionListener, KeyListener {
      * @throws IOException
      */
     public Game() throws IOException {
-        int score = 0;
+
         startMenu = new StartMenu(this);
         scoreMenu = new Score(this);
         gameOverMenu = new GameOver(this);
@@ -130,21 +130,21 @@ public class Game extends JPanel implements ActionListener, KeyListener {
             case MENU:
                 startMenu.draw(g); //สั่ง class startMenu เพื่อสั่งวาดหน้าเจอแสดงผล และ ต้องส่ง parameter เพื่อกสั่งให้ทำงาน
                 play = true;
-
                 break;
             case GAME:
 
-                if(sumScore > 70){
-                    this.speed = setSpeed(20,50);
-                }else if(sumScore > 500){
-                    this.speed = setSpeed(10,20);
-                }
+
 
                 if (tickCount % speed == 0) {
                     tickCount = 0;
                     obstacles.add(new Obstacle(860, 360)); // List obstacles เพื่อ add class object Obstacle เข้าไปใน List
-                }
 
+                }
+                if(sumScore > 70){
+                    speed = setSpeed(10,50);
+                }else if(sumScore > 500){
+                    speed = setSpeed(5,10);
+                }
 
                 playGamePanel.draw(g); //สั่ง class playGamePanel เพื่อสั่งวาดหน้าเจอแสดงผล และ ต้องส่ง parameter เพื่อกสั่งให้ทำงาน
 
@@ -154,8 +154,12 @@ public class Game extends JPanel implements ActionListener, KeyListener {
                 obstacles.forEach(obstacle -> {
                     obstacle.move(); //obstacle  ใช้ method move เพื่อทำให้ obstacle เคลื่อนไปทางซ้าย
                     obstacle.draw(g); //obstacle ใช้ draw และส่ง parameter g เพื่อให้ทำงาน
+                    System.out.println(obstacle.getX());
+
+//                    System.out.println("120 <= " + obstacle.getX() + " and " + " 180 >= " + obstacle.getX() + " and " + player.getY() + " >= " + "300");
 
                     if (120 <= obstacle.getX() && 180 >= obstacle.getX() && player.getY() >= 300) { //เช็ค การกระทบกันระหว่าง 2 Object ของ Player และ Obstacle
+                        System.out.println("Out");
                         setState(STATE.GAME_OVER); // set state to GAME_OVER
                         try {
                             Log.saveHeighScore(sumScore); // insert score to logfile
@@ -165,8 +169,9 @@ public class Game extends JPanel implements ActionListener, KeyListener {
 
                     }
                 });
+                System.out.println(obstacles);
+                obstacles = obstacles.stream().filter(obstacle -> obstacle.getX() >= -20).collect(Collectors.toList()); //จะเก็บข้อมูล obstacle >= -60 ถ้า ไม่ได้อยู่ในเงื่อนไขนี้จะถูกลบออก
 
-                obstacles = obstacles.stream().filter(obstacle -> obstacle.getX() >= -60).collect(Collectors.toList());
                 break;
             case SCORE:
                 try {
@@ -195,11 +200,11 @@ public class Game extends JPanel implements ActionListener, KeyListener {
                         player.setY(360);
                         player.setSpeedY(0);
                         player.setFall(false);
-                        player.setJump(true);
+                        player.setJump(2);
                     }
                 }
             default:
-                repaint();
+                repaint(); // repaint component
         }
     }
 
