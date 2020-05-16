@@ -1,8 +1,5 @@
 
-Name : AS Score : 4
-Name : สวัสดี Score : 9
-Name : :D Score : 39
-Name : TE Score : 691
-Name : SAM Score : 810
-Name : OAT Score : 200
-Name :  O Score : 307
+Name : โอ๊ต Score : 4 9
+Name : โอ๊ต2 Score : 9 string to UTF-8 Score : 14
+Name :  ทดสอบEndcode string to UTF-8 Score : 14
+Name : ssหห Score : 19

@@ -23,7 +23,7 @@ public class LineNotify {
             connection.setRequestMethod( "POST" ); //กำนหด requestMethod เป็น POST
             connection.addRequestProperty( "Content-Type" , "application/x-www-form-urlencoded" );
             connection.setDoOutput( true );
-            String parameterString = new String("message=" + message);
+            String parameterString = new String("message-=" + message);
             PrintWriter printWriter = new PrintWriter(connection.getOutputStream());
             printWriter.print(parameterString);
             printWriter.close();

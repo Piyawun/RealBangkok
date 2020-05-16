@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="RealBangkok:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/RealBangkok_jar</output-path>
+    <root id="archive" name="RealBangkok.jar">
+      <element id="module-output" name="RealBangkok" />
+    </root>
+  </artifact>
+</component>

@@ -3,6 +3,7 @@ package game;
 import javax.swing.*;
 import java.io.*;
 import java.net.InetAddress;
+import java.nio.charset.StandardCharsets;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
@@ -48,7 +49,7 @@ public class Log<log> {
 
             }
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            System.out.println("Error !! : " + e.getMessage());
         }
 
     }
@@ -117,11 +118,13 @@ public class Log<log> {
                 JOptionPane.showMessageDialog(null,"Please enter your name","Alert",JOptionPane.WARNING_MESSAGE);
                 name = JOptionPane.showInputDialog(null, "Top score \n Your score is "+ score + "\nPlease Enter your name");
             }
+            byte[] bytes = name.getBytes(StandardCharsets.UTF_8);
+            String nameEncode = new String(bytes, StandardCharsets.UTF_8);
 
             InetAddress ip = InetAddress.getLocalHost(); //getDetail form computer
 
             LineNotify lineNotify = new LineNotify(); //create object lineNotify
-            lineNotify.callEvent(line + "\nName : " + name.toUpperCase() + "\nScore : " + score + "\nForm : " + ip); //lineNotify ใช้ method callEvent เพื่อส่งข้อมูลผ่าน LineNotify
+            lineNotify.callEvent(line + "\nName : " + nameEncode + "\nScore : " + score + "\nForm : " + ip); //lineNotify ใช้ method callEvent เพื่อส่งข้อมูลผ่าน LineNotify
 
             try {
                 if (inFile.exists()) { //check status file
@@ -137,7 +140,7 @@ public class Log<log> {
                         writeFile = new File("saveTopScore.txt");
                         FileOutputStream outFS = new FileOutputStream(writeFile);
                         PrintWriter outS = new PrintWriter(outFS);
-                        outS.print(line + "Name : " + name.toUpperCase() + " Score : " + score); //Edit here
+                        outS.print(line + "Name : " + nameEncode + " Score : " + score); //Edit here
                         outS.close();
 
                     }
@@ -147,15 +150,16 @@ public class Log<log> {
                     FileOutputStream outFS = new FileOutputStream(writeFile);
                     PrintWriter outS = new PrintWriter(outFS);
 
-                    outS.print(line + "\nName : " + name.toUpperCase() + " Score : " + score); //Edit here
+                    outS.print(line + "\nName : " + nameEncode + " Score : " + score); //Edit here
                     outS.close();
                 }
             } catch (FileNotFoundException e) {
-                e.getMessage();
+                System.out.println("Error !! : " + e.getMessage());
             }
 
         } catch (Exception e) {
-                e.getMessage();
+            System.out.println("Error !! : " + e.getMessage());
+
         }
 
 

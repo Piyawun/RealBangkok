@@ -158,11 +158,9 @@ public class Game extends JPanel implements ActionListener, KeyListener {
                 obstacles.forEach(obstacle -> {
                     obstacle.move(); //obstacle  ใช้ method move เพื่อทำให้ obstacle เคลื่อนไปทางซ้าย
                     obstacle.draw(g); //obstacle ใช้ draw และส่ง parameter g เพื่อให้ทำงาน
-                    System.out.println(obstacle.getX());
 
 
                     if (120 <= obstacle.getX() && 180 >= obstacle.getX() && player.getY() >= 300) { //เช็ค การกระทบกันระหว่าง 2 Object ของ Player และ Obstacle
-                        System.out.println("Out");
                         setState(STATE.GAME_OVER); // set state to GAME_OVER
                         try {
                             Log.saveHeighScore(sumScore); // insert score to logfile

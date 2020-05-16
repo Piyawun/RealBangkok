@@ -37,8 +37,6 @@ public class StartMenu implements MouseListener {
         int mouseX = e.getX();
         int mouseY = e.getY();
 
-        System.out.println("X : " + mouseX + " Y : " + mouseY);
-
     if(Game.state == Game.STATE.MENU){
 //        Button Play
         if(mouseX >= 358 && mouseY >= 330 && mouseX <= 505 && mouseY <= 410){
